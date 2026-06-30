@@ -1,0 +1,55 @@
+# =========
+# Configuración global (Para todos los entornos)
+# =========
+spring:
+  application:
+    name: chatbotbusiness
+  mvc:
+    problemdetails.enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  profiles:
+    active: local #Perfil default para arrancar desde intellij
+
+server:
+  port: 8080
+
+---
+# =========
+# PERFIL local (Para usar desde el IDE)
+# =========
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chatbot_db
+    username: chatbot_user
+    password: chatbot_pass
+  ai:
+    ollama:
+      base-url: http://localhost:11434 # Ollama corriendo nativo en tu PC
+      chat:
+        model: mistral
+
+---
+# =========
+# PERFIL docker (Para cuando se levante todo desde docker compose)
+# =========
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    # 'postgres' es el nombre del servicio en docker-compose.yml
+    url: jdbc:postgresql://postgres:5432/chatbot_db
+    username: chatbot_user
+    password: chatbot_pass
+  ai:
+    ollama:
+      # 'host.docker.internal' permite al contenedor de Docker salir a tu PC local
+      base-url: http://host.docker.internal:11434
+      chat:
+        model: mistral
