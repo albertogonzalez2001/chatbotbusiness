@@ -20,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChatService {
 
+    // Atributos de la clase (dependencias) que no varian, FINAL.
     private final ChatClient chatClient;
     private final MessageRepository messageRepository;
 
@@ -91,3 +92,5 @@ public class ChatService {
         messageRepository.save(message);
     }
 }
+
+//ENTIENDE ESTE CODIGO ANTES DE PASAR A LA SIGUIENTE CLASE
