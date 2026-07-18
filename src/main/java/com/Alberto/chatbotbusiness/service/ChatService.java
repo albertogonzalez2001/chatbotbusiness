@@ -79,7 +79,6 @@ public class ChatService {
 
         // Guardar la respuesta del asistente en la BD
         saveMessage(sessionId, Message.Role.ASSISTANT, response);
-
         return response;
     }
 
