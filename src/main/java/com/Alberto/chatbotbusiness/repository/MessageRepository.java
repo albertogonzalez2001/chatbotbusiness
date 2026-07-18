@@ -11,6 +11,7 @@ import java.util.List;
 public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findBySessionIdOrderByCreatedAtAsc(String sessionId);
 
+    // Recuperacion de los ultimos mensajes de una sesion, N, orden de mas antiguos a mas recientes
     @Query("""
     SELECT m FROM Message m
     WHERE m.sessionId = :sessionId 

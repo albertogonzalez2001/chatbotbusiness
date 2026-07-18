@@ -24,6 +24,9 @@ public class ChatService {
     private final ChatClient chatClient;
     private final MessageRepository messageRepository;
 
+    // Máximo de mensajes del historial que se envian al LLM
+    private static final int MAX_HISTORY = 10;
+
     private static final String SYSTEM_PROMPT = """
              Eres el asistente virtual de "Café González", una cafetería ubicada en el centro de Madrid.
                     Responde únicamente preguntas relacionadas con el negocio.
