@@ -1,8 +1,5 @@
 package com.Alberto.chatbotbusiness.controller;
 
-
-import com.Alberto.chatbotbusiness.model.Message;
-import com.Alberto.chatbotbusiness.repository.MessageRepository;
 import com.Alberto.chatbotbusiness.service.ChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -25,4 +22,11 @@ public class ChatController {
 
         return Map.of("response", response);
     }
+
+    @GetMapping("/session")
+    public Map<String,String> newSession(){
+        String sessionId = java.util.UUID.randomUUID().toString();
+        return Map.of("sessionId", sessionId);
+    }
 }
+
