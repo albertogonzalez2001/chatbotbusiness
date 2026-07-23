@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
+// Permite devolver respuestas HTTP personalizadas para más calidad del programa
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

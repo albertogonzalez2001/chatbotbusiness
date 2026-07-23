@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café González - Asistente Virtual</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div class="chat-wrapper">
+        <!--Cabecera del chatbot-->
+        <header class="chat-header">
+            <div class="chat-header-avatar">☕</div>
+            <div class="chat-header-info">
+                <span class="chat-header-name">Café González</span>
+                <span class="chat-header-status">Asistente Virtual</span>
+            </div>
+        </header>
+
+        <!-- Área de renderizado de mensajes -->
+        <main class="chat-messages" id="chatMessages"></main>
+
+        <!-- Área de escritura -->
+        <footer class="chat-input-area">
+            <input type="text"
+            id="userInput"
+            class="chat-input"
+            placeholder="Escribe tu pregunta..."
+            autocomplete="off"
+            />
+            <button id="sendButton" class="chat-send-btn">Enviar</button>
+        </footer>
+    </div>
+    <script src=""></script>
+</body>
+</html>
