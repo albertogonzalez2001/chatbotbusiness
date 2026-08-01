@@ -1,0 +1,40 @@
+Acceder a la base de datos desde Docker
+
+Conéctate al contenedor de PostgreSQL:
+
+docker exec -it chatbot-postgres psql -U chatbot_user -d chatbot_db
+
+Una vez dentro, estos son los comandos más útiles con todo lujo de detalle:
+
+Ver todos los mensajes con todos los campos:
+
+SELECT id, session_id, role, content, created_at 
+FROM message 
+ORDER BY created_at ASC;
+
+Ver una conversación completa de una sesión concreta:
+
+SELECT role, content, created_at 
+FROM message 
+WHERE session_id = 'tu-session-id-aqui'
+ORDER BY created_at ASC;
+
+Ver cuántos mensajes hay por sesión:
+
+SELECT session_id, COUNT(*) as total_mensajes
+FROM message
+GROUP BY session_id
+ORDER BY total_mensajes DESC;
+
+Ver los últimos 10 mensajes insertados:
+
+SELECT id, session_id, role, LEFT(content, 80) AS preview, created_at
+FROM message
+ORDER BY created_at DESC
+LIMIT 10;
+
+El LEFT(content, 80) trunca el contenido a 80 caracteres para que la tabla sea legible en la terminal.
+
+Salir de psql:
+
+\q
