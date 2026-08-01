@@ -27,7 +27,7 @@ body {
 
 /* Estilo de la cabecera */
 .chat-header {
-    background: #1a1a2e;
+    background: #000000;
     color: #ffffff;
     padding: 16px 20px;
     display: flex;
@@ -43,6 +43,9 @@ body {
     display: block;
     font-weight: 600;
     font-size: 16px;
+    background-image: linear-gradient(to right, #F6FF00, #00FFDD);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 .chat-header-status {
